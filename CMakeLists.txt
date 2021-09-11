@@ -278,9 +278,9 @@ string(REGEX MATCH "^[0-9]+[.]" SWIG_MAJOR ${SWIG_VERSION})
 # Look for guile versions in this order: 3.0 > 2.2 > 2.0
 
 # guile library and include dir
-pkg_check_modules (GUILE3 guile-3.0 QUIET)
-pkg_check_modules (GUILE22 guile-2.2 QUIET)
-pkg_check_modules (GUILE2 guile-2.0>=2.0.9 QUIET)
+pkg_check_modules (GUILE3 guile-3.0 )
+pkg_check_modules (GUILE22 guile-2.2 )
+pkg_check_modules (GUILE2 guile-2.0>=2.0.9 )
 
 if (GUILE3_FOUND) # found guile-3.0
   add_definitions (-DHAVE_GUILE30)
@@ -527,9 +527,10 @@ IF (LIBSECRET_FOUND)
 ENDIF (LIBSECRET_FOUND)
 
 #BOOST
-set(Boost_USE_STATIC_LIBS   ON)
+#set(Boost_USE_STATIC_LIBS   ON)
 set (Boost_USE_MULTITHREADED ON)
-set (Boost_FIND_QUIETLY ON)
+#set (Boost_FIND_QUIETLY ON)
+#set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 if (NOT DEFINED ${BOOST_ROOT})
   set(BOOST_ROOT $ENV{BOOST_ROOT})
